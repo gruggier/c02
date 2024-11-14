@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giamrugg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 12:33:16 by giamrugg          #+#    #+#             */
-/*   Updated: 2024/11/14 12:28:17 by giamrugg         ###   ########.fr       */
+/*   Created: 2024/11/13 12:57:10 by giamrugg          #+#    #+#             */
+/*   Updated: 2024/11/14 12:27:28 by giamrugg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (src[i] != '\0' && i < n)
 	{
 		dest[i] = src[i];
+		++i;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 /*
 int	main(void)
 {
-	char	src[] = "Hello world!";
-	char	dest[50];
+	char	src[] = "Hello, world!";
+	char	dest[20];
 
-	ft_strcpy(dest, src);
-	printf("origine: %s\n", src);
-	printf("destinazione: %s\n", dest);
+	ft_strncpy(dest, src, 5);
+	printf("Dest dopo ft_strncpy: %s\n", dest);
 	return (0);
 }
 */

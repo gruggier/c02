@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giamrugg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 12:33:16 by giamrugg          #+#    #+#             */
-/*   Updated: 2024/11/14 12:28:17 by giamrugg         ###   ########.fr       */
+/*   Created: 2024/11/14 14:17:45 by giamrugg          #+#    #+#             */
+/*   Updated: 2024/11/14 15:55:48 by giamrugg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strcpy(char *dest, const char *src)
+int	ft_str_is_alpha(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
+	int i = 0;
+	int j = 1;
+	
+	while (*str)
 	{
-		dest[i] = src[i];
-		i++;
+		if (!((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z')))
+		{
+			return(i);
+		}
+		*str++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (j);
 }
-/*
+
 int	main(void)
 {
-	char	src[] = "Hello world!";
-	char	dest[50];
-
-	ft_strcpy(dest, src);
-	printf("origine: %s\n", src);
-	printf("destinazione: %s\n", dest);
-	return (0);
+	char a[] = "Astri";
+	char b[] = "Astri_1";
+	printf("%d\n", ft_str_is_alpha(a));
+	printf("%d\n", ft_str_is_alpha(b));
 }
-*/
