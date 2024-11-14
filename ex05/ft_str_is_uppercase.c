@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: giamrugg <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:31:08 by giamrugg          #+#    #+#             */
-/*   Updated: 2024/11/14 17:06:56 by giamrugg         ###   ########.fr       */
+/*   Created: 2024/11/14 16:46:21 by giamrugg          #+#    #+#             */
+/*   Updated: 2024/11/14 16:54:32 by giamrugg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int     ft_str_is_numeric(char *str)
+int     ft_str_is_uppercase(char *str)
 {
         int i = 0;
         int j = 1;
 
         while (*str)
         {
-                if (!(*str >= '0' && *str <= '9') || (*str == '\0'))
+                if (!((*str >= 'A' && *str <= 'Z')) || (*str = '\0'))
                 {
                         return(i);
                 }
@@ -32,10 +32,13 @@ int     main(void)
 {
         char a[] = "Astri";
         char b[] = "Astri_1";
-	char c[] = "651981";
-	char d[] = "";
-        printf("%d\n", ft_str_is_numeric(a));
-        printf("%d\n", ft_str_is_numeric(b));
-	printf("%d\n", ft_str_is_numeric(c));
-	printf("%d\n", ft_str_is_numeric(d));
+        char c[] = "astri";
+	char d[] = "ASTRI";
+	char e[] = "";
+        printf("%d\n", ft_str_is_uppercase(a));
+        printf("%d\n", ft_str_is_uppercase(b));
+        printf("%d\n", ft_str_is_uppercase(c));
+	printf("%d\n", ft_str_is_uppercase(d));
+	printf("%d\n", ft_str_is_uppercase(e));
 }
+
